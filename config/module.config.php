@@ -108,4 +108,19 @@ return [
             dirname(__DIR__) . DIRECTORY_SEPARATOR . 'view',
         ],
     ],
+    'form_elements' => [
+        'invokables' => [
+            Form\ItemSetsTreeFieldset::class => Form\ItemSetsTreeFieldset::class,
+        ],
+    ],
+    'itemsetstree' => [
+        'block_settings' => [
+            'itemSetsTree' => [
+                'heading' => '',
+                'displayCount' => false,
+                'displayDescription' => false,
+                'linkEmpty' => false,
+            ],
+        ],
+    ],
 ];
