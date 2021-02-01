@@ -10,6 +10,11 @@ use Omeka\Site\BlockLayout\AbstractBlockLayout;
 
 class ItemSetsTree extends AbstractBlockLayout
 {
+    /**
+     * The default partial view script.
+     */
+    const PARTIAL_NAME = 'common/block-layout/item-sets-tree';
+
     public function getLabel()
     {
         return 'Item Sets Tree'; // @translate
@@ -42,6 +47,11 @@ class ItemSetsTree extends AbstractBlockLayout
 
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
-        return $view->partial('common/block-layout/item-sets-tree', $block->data());
+        $data = $block->data();
+        $template = empty($data['template']) ? self::PARTIAL_NAME : $data['template'];
+        unset($data['template']);
+        return $view->resolver($template)
+            ? $view->partial($template, $data)
+            : $view->partial(self::PARTIAL_NAME, $data);
     }
 }

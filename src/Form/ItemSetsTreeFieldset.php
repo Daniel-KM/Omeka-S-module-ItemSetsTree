@@ -50,5 +50,21 @@ class ItemSetsTreeFieldset extends Fieldset
                     'id' => 'item-sets-tree-link-empty',
                 ],
             ]);
+
+        if (class_exists('BlockPlus\Form\Element\TemplateSelect')) {
+            $this
+            ->add([
+                'name' => 'o:block[__blockIndex__][o:data][template]',
+                'type' => \BlockPlus\Form\Element\TemplateSelect::class,
+                'options' => [
+                    'label' => 'Template to display', // @translate
+                    'info' => 'Templates are in folder "common/block-layout" of the theme and should start with "item-sets-tree".', // @translate
+                    'template' => 'common/block-layout/item-sets-tree',
+                ],
+                'attributes' => [
+                    'class' => 'chosen-select',
+                ],
+            ]);
+        }
     }
 }

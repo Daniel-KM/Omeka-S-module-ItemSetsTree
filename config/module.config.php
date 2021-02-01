@@ -120,6 +120,7 @@ return [
                 'displayCount' => false,
                 'displayDescription' => false,
                 'linkEmpty' => false,
+                'template' => '',
             ],
         ],
     ],
