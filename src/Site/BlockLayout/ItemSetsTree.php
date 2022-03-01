@@ -50,7 +50,7 @@ class ItemSetsTree extends AbstractBlockLayout
         $data = $block->data();
         $template = empty($data['template']) ? self::PARTIAL_NAME : $data['template'];
         unset($data['template']);
-        return $view->resolver($template)
+        return $template !== self::PARTIAL_NAME && $view->resolver($template)
             ? $view->partial($template, $data)
             : $view->partial(self::PARTIAL_NAME, $data);
     }
