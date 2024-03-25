@@ -32,7 +32,7 @@ class ItemSetsTree extends AbstractBlockLayout
         $defaultSettings = $services->get('Config')['itemsetstree']['block_settings']['itemSetsTree'];
         $blockFieldset = \ItemSetsTree\Form\ItemSetsTreeFieldset::class;
 
-        $data = $block ? $block->data() + $defaultSettings : $defaultSettings;
+        $data = $block ? ($block->data() ?? []) + $defaultSettings : $defaultSettings;
 
         $dataForm = [];
         foreach ($data as $key => $value) {
